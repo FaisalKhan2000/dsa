@@ -37,7 +37,9 @@ class DoublyLinkedList {
   }
 }
 
-const myLinkedList = new DoublyLinkedList();
-myLinkedList.push(1);
+console.log(new Node(1));
 
+const myLinkedList = new DoublyLinkedList(1);
+
+// myLinkedList.push(2);
 console.log(myLinkedList);
