@@ -28,6 +28,7 @@ class LinkedList {
       this.tail = newNode;
     }
     this.length += 1;
+    return newNode;
   }
 
   pop() {
@@ -96,6 +97,95 @@ class LinkedList {
     this.length -= 1;
     return shiftedValue;
   }
+
+  getFirstNode() {
+    return this.head;
+  }
+
+  getLastNode() {
+    let tempNode = this.head;
+
+    while (tempNode) {
+      if (!tempNode.next) {
+        return tempNode;
+      }
+
+      tempNode = tempNode.next;
+    }
+
+    return tempNode;
+  }
+
+  get(index) {
+    let tempNode = this.head;
+    let counter = 0;
+
+    while (tempNode) {
+      if (counter === index) {
+        return tempNode;
+      }
+
+      counter += 1;
+      tempNode = tempNode.next;
+    }
+    return null;
+  }
+
+  set(value, index) {
+    let tempNode = this.head;
+    let counter = 0;
+
+    while (tempNode) {
+      if (counter === index) {
+        tempNode.value = value; // tempNode changes value of original node dut to reference
+        return true;
+      }
+
+      counter += 1;
+      tempNode = tempNode.next;
+    }
+
+    return false;
+  }
+
+  // insert -> add node at the index of the the list
+  insert(value, index) {
+    if (index === 0) {
+      return this.unshift(value);
+    }
+
+    if (index === this.length) {
+      return this.push(value);
+    }
+
+    const newNode = new Node(value);
+
+    // find out the before element
+    const temp = this.get(index - 1);
+
+    newNode.next = temp.next;
+    temp.next = newNode;
+
+    this.length++;
+  }
+
+  size() {
+    let currentNode = this.head;
+    let counter = 0;
+
+    while (currentNode) {
+      counter += 1;
+      currentNode = currentNode.next;
+    }
+
+    return counter;
+  }
+
+  clear() {
+    this.head = null;
+    this.tail = null;
+    this.length = 0;
+  }
 }
 
 const myLinkedList = new LinkedList();
@@ -103,11 +193,14 @@ myLinkedList.push(1);
 myLinkedList.push(2);
 myLinkedList.push(3);
 myLinkedList.push(4);
-// console.log(myLinkedList);
+console.log(myLinkedList);
 
-myLinkedList.pop();
-// console.log(myLinkedList);
-myLinkedList.unshift(69);
-// console.log(myLinkedList);
-// myLinkedList.shift(69);
+// console.log(myLinkedList.getFirstNode());
+// console.log(myLinkedList.getLastNode());
+// console.log(myLinkedList.get(4));
+// console.log(myLinkedList.set("hello", 3));
+myLinkedList.insert(69, 2);
+myLinkedList.clear();
+
+console.log(myLinkedList.size());
 console.log(myLinkedList);
