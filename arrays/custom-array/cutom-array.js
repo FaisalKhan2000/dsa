@@ -42,7 +42,6 @@ class MyArray {
     if (this.length === 0) {
       return undefined;
     }
-
     const firstItem = this.data[0];
 
     for (let i = 0; i < this.length - 1; i++) {
@@ -50,7 +49,6 @@ class MyArray {
     }
 
     delete this.data[this.length - 1];
-
     this.length--;
 
     return firstItem;
