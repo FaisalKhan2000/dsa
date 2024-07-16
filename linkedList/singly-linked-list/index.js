@@ -190,17 +190,18 @@ class LinkedList {
 
 const myLinkedList = new LinkedList();
 myLinkedList.push(1);
-myLinkedList.push(2);
-myLinkedList.push(3);
-myLinkedList.push(4);
+console.log(myLinkedList.push(2));
+// myLinkedList.push(2);
+// myLinkedList.push(3);
+// myLinkedList.push(4);
 console.log(myLinkedList);
 
 // console.log(myLinkedList.getFirstNode());
 // console.log(myLinkedList.getLastNode());
 // console.log(myLinkedList.get(4));
 // console.log(myLinkedList.set("hello", 3));
-myLinkedList.insert(69, 2);
-myLinkedList.clear();
+// myLinkedList.insert(69, 2);
+// myLinkedList.clear();
 
-console.log(myLinkedList.size());
-console.log(myLinkedList);
+// console.log(myLinkedList.size());
+// console.log(myLinkedList);
